@@ -1,0 +1,11 @@
+.my-background {
+    background-color: #d0def5;
+}
+
+html, body {
+    height: 100%
+}
+
+.custom-navbar-color {
+    background-color: #1a52be;
+}

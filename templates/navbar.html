@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">TBC Group Site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'index' %} active {%endif%} " aria-current="page" href="/">Home</a>
+                </li>
+            </ul>
+            <div class="d-flex mx-5" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                       id="searchInput">
+                <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
+            </div>
+            <div class="d-flex btn-group" role="search">
+                {% if current_user.is_authenticated %}
+                <a href="/logout" class="btn btn-outline-success">Log Out</a>
+                {% else %}
+                <a href="/login" class="btn btn-outline-success" type="submit">Log In</a>
+                <a href="/register" class="btn btn-outline-success" type="submit">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

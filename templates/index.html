@@ -1,0 +1,35 @@
+{% set active_page = "index" %}
+{% extends "base.html" %}
+
+{% block title %}
+TBC Group 1 - Main
+{% endblock %}
+
+{% block content %}
+<div class="container my-2 py-3 bg-white shadow-lg">
+    <div class="row">
+         {{ current_user.is_authenticated }}
+    </div>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col">
+            <div class="card">
+                <img src="/static/{{ product['img'] }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ product['name'] }}</h5>
+                    <p class="card-text">{{ product['price'] }}</p>
+                    <a href="/product/{{ product['id'] }}" class="btn btn-primary">View</a>
+                    {% if role == "Admin" %}
+                    <a href="#" class="btn btn-danger">Delete Product</a>
+                    {% elif role == "Moderator" %}
+                    <a href="#" class="btn btn-success">Delete Product</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
